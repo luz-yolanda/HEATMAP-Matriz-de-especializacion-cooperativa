@@ -1,0 +1,51 @@
+---
+title: "HEADMAP RSTUDIO"
+author: "Luz Yolanda Rivera"
+date: "10/16/2021"
+output: html_document
+---
+###############################################
+# 2.A SACAR HEATMAP DE LA MATRIZ RCA BINARIA #####
+##############################################
+
+#install.packages("pheatmap")
+```{r}
+library(pheatmap)
+```
+# viridis, magma, plasma, cividis, inferno
+#install.packages("viridisLite")
+```{r}
+library(viridis)
+```
+
+file.choose()
+```{r}
+heatmap_1 <- as.matrix(
+  read.csv("/Users/luz/Documents/GitHub/Temas selectos3/LYRA_LAB45 ECONGEO EN R /archivos generados en R lab45/RCABIN.csv" ,
+           sep = "," ,
+           header = T,
+           row.names = 1))
+```
+
+#Plotting with pheatmap!
+```{r}
+pheatmap(heatmap_1)
+
+colorz <- c('white', 'navyblue')
+```
+
+#Estilizando el heatmap generado
+```{r}
+library(viridis)
+```
+
+```{r}
+library(viridis)
+pheatmap(heatmap_1, frontsize = 6, cluster_rows = T, cluster_cols = F, treeheight_row = 1, treeheight_col = 0, 
+         main = "", fontsize = 8, annotation_legend = FALSE, display_numbers = FALSE, 
+         fontsize_number = 6, col = colorz)
+```
+
+
+
+
